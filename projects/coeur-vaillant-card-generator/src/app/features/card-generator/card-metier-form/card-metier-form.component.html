@@ -1,0 +1,63 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>Paramétrage de la carte</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="metierForm">
+            <!-- Titre principal -->
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titre</mat-label>
+                    <input matInput maxlength="20" formControlName="titre" />
+                </mat-form-field>
+            </div>
+
+            <!-- Groupe Atour -->
+            <mat-card-subtitle>Atour</mat-card-subtitle>
+            <div class="row" formGroupName="atour">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titre</mat-label>
+                    <input matInput maxlength="20" formControlName="titre" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+
+            <!-- Groupe Usuel -->
+            <mat-card-subtitle>Usuel</mat-card-subtitle>
+            <div class="row" formGroupName="usuel">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titre</mat-label>
+                    <input matInput maxlength="20" formControlName="titre" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre d'utilisation</mat-label>
+                    <input
+                        matInput
+                        maxlength="20"
+                        formControlName="utilisation"
+                    />
+                </mat-form-field>
+            </div>
+
+            <!-- Groupe Prouesse -->
+            <mat-card-subtitle>Prouesse</mat-card-subtitle>
+            <div class="row" formGroupName="prouesse">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titre</mat-label>
+                    <input matInput maxlength="20" formControlName="titre" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardSettingsComponent } from './card-settings.component';
+import { CardMetierFormComponent } from './card-metier-form.component';
 
-describe('CardSettingsComponent', () => {
-  let component: CardSettingsComponent;
-  let fixture: ComponentFixture<CardSettingsComponent>;
+describe('CardMetierFormComponent', () => {
+  let component: CardMetierFormComponent;
+  let fixture: ComponentFixture<CardMetierFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardSettingsComponent]
+      imports: [CardMetierFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardSettingsComponent);
+    fixture = TestBed.createComponent(CardMetierFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
