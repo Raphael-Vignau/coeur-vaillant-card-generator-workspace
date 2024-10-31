@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {
     FormBuilder,
     FormControl,
@@ -32,8 +32,17 @@ import { Metier } from '../../../interfaces/metier';
 export class CardMetierFormComponent {
     private readonly formBuilder = new FormBuilder();
 
+    titreCard = signal<string>('titre');
+    atourTitre = signal<string>('titre');
+    atourDescription = signal<string>('description');
+    usuelTitre = signal<string>('titre');
+    usuelDescription = signal<string>('description');
+    usuelUtilisation = signal<string>('utilisation');
+    prouesseTitre = signal<string>('titre');
+    prouesseDescription = signal<string>('description');
+
     metierForm = this.formBuilder.group({
-        titre: [''],
+        titreCard: [''],
         atour: this.formBuilder.group({
             titre: [''],
             description: [''],
@@ -48,4 +57,17 @@ export class CardMetierFormComponent {
             description: [''],
         }),
     });
+
+    constructor() {
+        // Synchroniser chaque signal avec les changements de formulaire
+        this.metierForm.get('titreCard')?.valueChanges.subscribe(value => this.titreCard.set(value ?? ''));
+        this.metierForm.get('atour.titre')?.valueChanges.subscribe(value => this.atourTitre.set(value ?? ''));
+        this.metierForm.get('atour.description')?.valueChanges.subscribe(value => this.atourDescription.set(value ?? ''));
+        this.metierForm.get('usuel.titre')?.valueChanges.subscribe(value => this.usuelTitre.set(value ?? ''));
+        this.metierForm.get('usuel.description')?.valueChanges.subscribe(value => this.usuelDescription.set(value ?? ''));
+        this.metierForm.get('usuel.utilisation')?.valueChanges.subscribe(value => this.usuelUtilisation.set(value ?? ''));
+        this.metierForm.get('prouesse.titre')?.valueChanges.subscribe(value => this.prouesseTitre.set(value ?? ''));
+        this.metierForm.get('prouesse.description')?.valueChanges.subscribe(value => this.prouesseDescription.set(value ?? ''));
+      }
+
 }
